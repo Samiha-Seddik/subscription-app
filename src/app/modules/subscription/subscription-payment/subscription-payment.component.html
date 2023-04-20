@@ -1,0 +1,45 @@
+<div class="row m-0">
+<div class="col-md-6 col-sm-11 col-12 px-2 mx-auto" [formGroup]="paymentForm">
+    <div class="card shadow p-4">
+        <h3 >Paiment Data</h3>
+    <div class="row m-0">
+        <div class="col-12 px-0">
+            <div class="p-2 rounded text-center d-flex flex-column" style="background-color: #1ab6cf;">
+                <label>Current selected months : {{dataSelectedSubscription?.selectedSubscrition?.duration}} monthes</label>
+                <label>Current selected amount :{{dataSelectedSubscription?.selectedSubscrition?.amount}} GB</label>
+                <label>Total price :{{dataSelectedSubscription?.price}} $</label>
+            </div>
+        </div>
+    </div>
+    <div class="row mx-0 mt-4">
+        <div class="col-12 px-0">
+            <input type="text" class="form-control"  formControlName="creditCardNumber">
+            <small class="text-danger" *ngIf="paymentForm.get('creditCardNumber')?.invalid &&
+            (paymentForm.get('creditCardNumber')?.dirty || paymentForm.get('creditCardNumber')?.touched)">
+        Card number shoud be 16 numbers</small>
+        </div>
+    </div>
+    <div class="row mx-0 mt-4">
+        <div class="col-12 px-0">
+            <input type="text" class="form-control"   formControlName="securityCode">
+            <small class="text-danger" *ngIf="paymentForm.get('securityCode')?.invalid&&(paymentForm.get('securityCode')?.dirty || paymentForm.get('securityCode')?.touched)">
+                Security code should be 4 numbers</small>
+        </div>
+    </div>
+    <div class="row mx-0 mt-4">
+        <div class="col-12 px-0">
+            <input type="date"  class="form-control"  formControlName="dateExpiration">
+            <small class="text-danger" *ngIf="paymentForm.get('dateExpiration')?.invalid&&(paymentForm.get('dateExpiration')?.dirty || paymentForm.get('dateExpiration')?.touched)">Required</small>
+        </div>
+    </div>
+    <div class="row mx-0 mt-4">
+        <div class="col-12 px-0">
+            <div class="d-flex align-items-center justify-content-end">
+                <button class="btn btn-sm btn-outline-secondary mr-2" (click)="goBack()">Back</button>
+                <button class="btn btn-sm btn-info mr-2" (click)="confirmationStep()" [disabled]="!paymentForm.valid">Next</button>
+            </div>
+        </div>
+    </div> 
+    </div>
+</div>
+</div>

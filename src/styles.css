@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.check-upfront{
+    margin-left: -10px;
+}
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched,select.ng-invalid.ng-touched {
+    border: 1px solid red;
+}

@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center align-item-center " [formGroup]="parameterForm">
+    <div class="card shadow p-4 rounded">
+        <h4>Choose Subscription Periode And Amount Of GB  </h4>
+        <div class="row m-0">
+            <div class="col-12 px-0">
+                <div class="form-group w-100">
+                    <label for="" class="d-block">Duration</label>
+                 <select name="" id="" class="w-100 form-control" formControlName="duration">
+                     <option *ngFor="let duree of duration" [value]="duree.duration_months">{{duree.duration_months}} monthes</option>
+                 </select> 
+                 </div>
+            </div>
+        </div>
+        <div class="row m-0">
+            <div class="col-12 px-0">
+                <div class="form-group ">
+                    <label for="" class="d-block">Amount of gigabytes</label>
+                    <select name="" id="" class="w-100 form-control" formControlName="amount">
+                        <option value="5">5 GB</option>
+                        <option value="10">10 GB</option>
+                        <option value="50">50 GB</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row m-0">
+            <div class="col-12 px-0">
+                <mat-checkbox formControlName="upfrontPayment" class="check-upfront" >Upfront payment (10% discount)</mat-checkbox>
+    <div class="d-flex justify-content-end"><button class="btn btn-info btn-sm" (click)="calculateTotalPrice()">Next</button> </div>
+    
+            </div>
+        </div>
+        
+       
+    </div>
+</div>

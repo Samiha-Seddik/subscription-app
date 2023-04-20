@@ -1,0 +1,26 @@
+
+<div class="p-3 bg-info">
+<div class="d-flex align-items-center">
+    <span class="material-icons mr-2 text-white">subscriptions</span>
+    <h5 class="text-white mb-0">SubScription Application</h5>
+</div>
+</div>
+<mat-tab-group aria-disabled="true" [selectedIndex]="selectedIndex">
+    <mat-tab [disabled]="activeTabulation !='parameters'" label="Parameter Subscription" >
+        <div class="p-5">
+            <app-subscription-parameters (nextStep)="changeTabulation($event)"></app-subscription-parameters>
+        </div>
+    </mat-tab>
+    <mat-tab [disabled]="activeTabulation !='payment'" label="Payment Subscription">
+        <div class="p-5"> <app-subscription-payment (nextStep)="changeTabulation($event)"></app-subscription-payment></div>
+    </mat-tab>
+    <mat-tab [disabled]="activeTabulation !='confirm'" label="confirm Subscription">
+        <div class="p-5">
+             <app-subscription-confirmation *ngIf="!confirmInterface" (confirmSubscription)="confirmSubscription($event)" 
+             (nextStep)="changeTabulation($event)"></app-subscription-confirmation>
+             <div class="" *ngIf="confirmInterface">
+                <h3 class="text-success text-center">Subscription Confirmed</h3>
+                 <p class="text-center my-3">Thank you for your subscription!</p>
+             </div></div>
+    </mat-tab>
+</mat-tab-group>
